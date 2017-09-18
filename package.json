@@ -1,0 +1,24 @@
+{
+  "name": "todolist",
+  "version": "0.0.1",
+  "description": "Probation task for Andersen, written on native JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bombenko/ToDoList.git"
+  },
+  "author": "Alexander Zabenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bombenko/ToDoList/issues"
+  },
+  "homepage": "https://github.com/bombenko/ToDoList#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^3.6.0"
+  }
+}
