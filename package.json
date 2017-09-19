@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack-dev-server --open",
-    "lint": "./node_modules/.bin/eslint src/**/*.js",
-    "lint_fix": "./node_modules/.bin/eslint src/**/*.js --fix"
+    "lint": "eslint src/**/*.js",
+    "lint_fix": "eslint src/**/*.js --fix"
   },
   "repository": {
     "type": "git",
