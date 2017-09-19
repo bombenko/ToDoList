@@ -1,11 +1,11 @@
 import { join } from 'lodash';
 
 function component() {
-    const element = document.createElement('div');
+  const element = document.createElement('div');
 
-    element.innerHTML = join(['Hello', 'webpack'], ' ');
+  element.innerHTML = join(['Hello', 'webpack'], ' ');
 
-    return element;
+  return element;
 }
 
 document.body.appendChild(component());
