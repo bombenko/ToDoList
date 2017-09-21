@@ -5,8 +5,8 @@ export class Card {
     this.name = name;
     this.taskArr = taskArr;
   }
-  createTask(title, description){
-    let task = new Task(title, description);
+  createTask(title, description) {
+    const task = new Task(title, description);
     this.taskArr.push(task);
   }
   findTask(task) {
@@ -18,7 +18,7 @@ export class Card {
     return -1;
   }
   deleteTask(task) {
-    let i = this.findTask(task);
+    const i = this.findTask(task);
     if (i !== -1) {
       this.taskArr.splice(i, 1);
       return true;
@@ -26,7 +26,7 @@ export class Card {
     return false;
   }
   editTask(task, title, description) {
-    let i = this.findTask(task);
+    const i = this.findTask(task);
     if (i !== -1) {
       this.taskArr[i].title = title;
       this.taskArr[i].decription = description;
