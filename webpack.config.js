@@ -18,12 +18,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.less$/,
+        test: /\.css$/,
         use: [
           'style-loader',
           'css-loader',
           'autoprefixer-loader',
-          'less-loader',
         ],
       },
       {
