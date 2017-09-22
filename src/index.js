@@ -32,6 +32,8 @@ function createDefaultTask() {
   sunday.createTask('V popu', 'Raz');
 }
 
+createDefaultTask();
+
 /**
  *
  * @param {Task} task
@@ -91,26 +93,16 @@ function getCardListTemplate(cardList) {
 }
 
 const html = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ToDoList</title>
-    <meta name="viewport" content="width=device-width,init-scale=1">
-</head>
-<body>
-    <div class="header">
-        <div class="main-container">
-            <h1 class="header__title">Get it done</h1>
-        </div>
-    </div>
-    <main class="content">
-        <div class="main-container">    
-          ${getCardListTemplate(days)}
-        </div> 
-    </main>
-</body>
-</html>
+  <div class="header">
+      <div class="main-container">
+          <h1 class="header__title">Get it done</h1>
+      </div>
+  </div>
+  <main class="content">
+      <div class="main-container">    
+        ${getCardListTemplate(days)}
+      </div> 
+  </main>
 `;
 
-createDefaultTask();
 document.body.innerHTML = html;

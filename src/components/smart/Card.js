@@ -39,6 +39,7 @@ export class Card {
    */
   editTask(task, title, description) {
     const i = this.taskList.indexOf(elem => elem === task);
+
     if (i !== -1) {
       this.taskList[i].title = title;
       this.taskList[i].decription = description;
