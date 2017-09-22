@@ -1,35 +1,46 @@
 import { Task } from '../dump/Task';
 
 export class Card {
-  constructor(name, taskArr = []) {
+  /**
+   *
+   * @param {string} name
+   * @param {Array<Task>} taskList
+   */
+  constructor(name, taskList = []) {
     this.name = name;
-    this.taskArr = taskArr;
+    this.taskList = taskList;
   }
+
+  /**
+   *
+   * @param {string} title
+   * @param {string} description
+   */
   createTask(title, description) {
     const task = new Task(title, description);
-    this.taskArr.push(task);
+    this.taskList.push(task);
   }
-  findTask(task) {
-    for (let i = 0; i < this.taskArr.length; i++) {
-      if (this.taskArr[i] === task) {
-        return i;
-      }
-    }
-    return -1;
-  }
+
+  /**
+   *
+   * @param {Task} task
+   */
   deleteTask(task) {
-    const i = this.findTask(task);
-    if (i !== -1) {
-      this.taskArr.splice(i, 1);
-      return true;
-    }
-    return false;
+    this.taskList = this.taskList.filter(elem => elem !== task);
   }
+
+  /**
+   *
+   * @param {Task} task
+   * @param {string} title
+   * @param {string} description
+   * @returns {boolean}
+   */
   editTask(task, title, description) {
-    const i = this.findTask(task);
+    const i = this.taskList.indexOf(elem => elem === task);
     if (i !== -1) {
-      this.taskArr[i].title = title;
-      this.taskArr[i].decription = description;
+      this.taskList[i].title = title;
+      this.taskList[i].decription = description;
       return true;
     }
     return false;

@@ -1,38 +1,38 @@
 import { Card } from './components/smart/Card';
-import './css/style.css';
+import './css/style.less';
 
-const mn = new Card('Monday');
-mn.createTask('Prif', 'Che del');
-mn.createTask('Vilkoi', 'V glaz');
-mn.createTask('V popu', 'Raz');
+const monday = new Card('Monday');
+monday.createTask('Prif', 'Che del');
+monday.createTask('Vilkoi', 'V glaz');
+monday.createTask('V popu', 'Raz');
 
-const tu = new Card('Tuesday');
-tu.createTask('Prif', 'Che del');
-tu.createTask('Vilkoi', 'V glaz');
-tu.createTask('V popu', 'Raz');
+const tuesday = new Card('Tuesday');
+tuesday.createTask('Prif', 'Che del');
+tuesday.createTask('Vilkoi', 'V glaz');
+tuesday.createTask('V popu', 'Raz');
 
-const we = new Card('Wednesday');
-we.createTask('Prif', 'Che del');
+const wednesday = new Card('Wednesday');
+wednesday.createTask('Prif', 'Che del');
 
-const th = new Card('Thursday');
-th.createTask('Da ya prost', 'Pokurit\' vishel');
+const thursday = new Card('Thursday');
+thursday.createTask('Da ya prost', 'Pokurit\' vishel');
 
-const fr = new Card('Friday');
-fr.createTask('V popu', 'Raz');
+const friday = new Card('Friday');
+friday.createTask('V popu', 'Raz');
 
-const sa = new Card('Saturday');
-sa.createTask('Vilkoi', 'V glaz');
+const saturday = new Card('Saturday');
+saturday.createTask('Vilkoi', 'V glaz');
 
-const su = new Card('Sunday');
-su.createTask('Vilkoi', 'V glaz');
-su.createTask('V popu', 'Raz');
+const sunday = new Card('Sunday');
+sunday.createTask('Vilkoi', 'V glaz');
+sunday.createTask('V popu', 'Raz');
 
-const days = [mn, tu, we, th, fr, sa, su];
+const days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday];
 
 /**
  *
  * @param {Task} task
- * @param {num} index
+ * @param {number} index
  * @param {string} cardName
  * @returns {string}
  */
@@ -54,7 +54,7 @@ function getTaskTemplate(task, index, cardName) {
  * @param {Card} card
  */
 function getTaskListTemplate(card) {
-  return (card.taskArr.map((task, index) => getTaskTemplate(task, index, card.name))).join('');
+  return (card.taskList.map((task, index) => getTaskTemplate(task, index, card.name))).join('');
 }
 
 /**
