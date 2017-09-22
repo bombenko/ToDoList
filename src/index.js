@@ -2,38 +2,42 @@ import { Card } from './components/smart/Card';
 import './css/style.less';
 
 const monday = new Card('Monday');
-monday.createTask('Prif', 'Che del');
-monday.createTask('Vilkoi', 'V glaz');
-monday.createTask('V popu', 'Raz');
-
 const tuesday = new Card('Tuesday');
-tuesday.createTask('Prif', 'Che del');
-tuesday.createTask('Vilkoi', 'V glaz');
-tuesday.createTask('V popu', 'Raz');
-
 const wednesday = new Card('Wednesday');
-wednesday.createTask('Prif', 'Che del');
-
 const thursday = new Card('Thursday');
-thursday.createTask('Da ya prost', 'Pokurit\' vishel');
-
 const friday = new Card('Friday');
-friday.createTask('V popu', 'Raz');
-
 const saturday = new Card('Saturday');
-saturday.createTask('Vilkoi', 'V glaz');
-
 const sunday = new Card('Sunday');
-sunday.createTask('Vilkoi', 'V glaz');
-sunday.createTask('V popu', 'Raz');
 
 const days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday];
+
+function createDefaultTask() {
+  monday.createTask('Prif', 'Che del');
+  monday.createTask('Vilkoi', 'V glaz');
+  monday.createTask('V popu', 'Raz');
+
+  tuesday.createTask('Prif', 'Che del');
+  tuesday.createTask('Vilkoi', 'V glaz');
+  tuesday.createTask('V popu', 'Raz');
+
+  wednesday.createTask('Prif', 'Che del');
+
+  thursday.createTask('Da ya prost', 'Pokurit\' vishel');
+
+  friday.createTask('V popu', 'Raz');
+
+  saturday.createTask('Vilkoi', 'V glaz');
+
+  sunday.createTask('Vilkoi', 'V glaz');
+  sunday.createTask('V popu', 'Raz');
+}
 
 /**
  *
  * @param {Task} task
  * @param {number} index
  * @param {string} cardName
+ *
  * @returns {string}
  */
 function getTaskTemplate(task, index, cardName) {
@@ -78,10 +82,12 @@ function getCardTemplate(card) {
 
 /**
  *
- * @param {Array} cardList
+ * @param {Array<Card>} cardList
  */
 function getCardListTemplate(cardList) {
-  return (cardList.map((card) => getCardTemplate(card))).join('');
+  return cardList
+    .map(card => getCardTemplate(card))
+    .join('');
 }
 
 const html = `
@@ -106,4 +112,5 @@ const html = `
 </html>
 `;
 
+createDefaultTask();
 document.body.innerHTML = html;

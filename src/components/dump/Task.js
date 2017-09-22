@@ -10,6 +10,7 @@ export class Task {
     this.createTime = new Date();
     this.isCompleted = false;
   }
+
   setCompleted() {
     this.isCompleted = true;
   }

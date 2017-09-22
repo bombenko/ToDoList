@@ -34,6 +34,7 @@ export class Card {
    * @param {Task} task
    * @param {string} title
    * @param {string} description
+   *
    * @returns {boolean}
    */
   editTask(task, title, description) {
@@ -41,8 +42,10 @@ export class Card {
     if (i !== -1) {
       this.taskList[i].title = title;
       this.taskList[i].decription = description;
+
       return true;
     }
+
     return false;
   }
 }
