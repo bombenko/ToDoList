@@ -17,10 +17,18 @@ export class Task extends Component {
     this.deleteListItem = deleteListItem;
   }
 
+  /**
+   *
+   * @returns {void}
+   */
   setCompleted() {
     this.isCompleted = true;
   }
 
+  /**
+   *
+   * @returns {void}
+   */
   deleteTask() {
     this.deleteListItem(this);
   }
@@ -35,6 +43,10 @@ export class Task extends Component {
     this.description = description;
   }
 
+  /**
+   *
+   * @returns {string}
+   */
   getTemplate() {
     return `
       <input class="checkbox" id="${`${this.hash}-cbx`}" type="checkbox">

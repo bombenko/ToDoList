@@ -2,42 +2,63 @@ import { ComponentService } from '../services/component.service';
 
 export class Component {
   constructor() {
-    this.hash = new ComponentService().generateHash();
+    const componentService = new ComponentService();
+    this.hash = componentService.generateHash();
     this.componentName = 'comp';
     this.childList = [];
     this.elemRef = null;
   }
 
+  /**
+   *
+   * @param {Component} component
+   * @returns {string}
+   */
   createChild(component) {
     this.childList.push(component);
     return this.createRootTag(component);
   }
 
+  /**
+   *
+   * @param {Component} component
+   * @returns {string}
+   */
   createRootTag(component) {
-    return `<${component.componentName} ${component.hash}></${component.componentName}>`;
+    return `<${component.componentName} ${component.hash} class=${component.componentName}></${component.componentName}>`;
   }
 
-  getElemRef() {
-    if (!this.elemRef) {
-      this.elemRef = document.querySelector(`[${this.hash}]`);
-    }
+  /**
+   *
+   * @returns {Component}
+   */
+  attach() {
+    this.elemRef = document.querySelector(`[${this.hash}]`);
 
-    return this.elemRef;
+    return this;
   }
 
-  getDomElem() {
-    const elem = document.createElement(this.componentName);
-    elem.innerHTML = this.getTemplate();
-    elem.setAttribute(this.hash, '');
-    elem.className += this.componentName;
-
-    return elem;
+  /**
+   *
+   * @returns {void}
+   */
+  renderChildren() {
+    this.childList.forEach(child => child.attach().render());
   }
 
+  /**
+   *
+   * @returns {Component}
+   */
   render() {
-    this.getElemRef().replaceWith(this.getDomElem());
-    this.childList.forEach(child => child.render());
+    this.elemRef.innerHTML = this.getTemplate();
+    this.renderChildren();
+
+    return this;
   }
 
+  /**
+   * Method to override
+   */
   getTemplate() { }
 }

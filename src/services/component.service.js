@@ -1,16 +1,26 @@
 let service = null;
 
 export class ComponentService {
+  /**
+   * Realize Singleton pattern
+   *
+   * @returns {ComponentService}
+   */
   constructor() {
     if (!service) {
       service = this;
     }
 
-    this.componentNum = 0;
+    const initComponentNum = 0;
+    this.componentNum = initComponentNum;
 
     return service;
   }
 
+  /**
+   *
+   * @returns {string}
+   */
   generateHash() {
     this.componentNum += 1;
 

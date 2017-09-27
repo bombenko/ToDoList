@@ -15,11 +15,17 @@ export class Card extends Component {
   /**
    *
    * @param {Task} task
+   *
+   * @returns {void}
    */
   deleteListItem(task) {
     this.childList = this.childList.filter(elem => elem !== task);
   }
 
+  /**
+   *
+   * @returns {string}
+   */
   getTemplate() {
     return `
       <h2 class="title card__title">${this.name}</h2>

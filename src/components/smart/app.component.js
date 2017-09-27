@@ -7,6 +7,10 @@ export class App extends Component {
     this.componentName = 'app';
   }
 
+  /**
+   *
+   * @returns {string}
+   */
   getTemplate() {
     return `
       <div class="header">

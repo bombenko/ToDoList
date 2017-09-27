@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -44,7 +45,6 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -64,5 +64,6 @@ module.exports = {
       name: 'vendor',
       minChunks: Infinity,
     }),
+    new UglifyJSPlugin(),
   ],
 };
