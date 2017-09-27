@@ -47,6 +47,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "lodash": "^4.17.4",
+    "raw-loader": "^0.5.1",
     "style-loader": "^0.18.2",
     "uglify-loader": "^2.0.0",
     "webpack": "^3.6.0",

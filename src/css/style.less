@@ -102,6 +102,43 @@ p{
   margin-left: .5rem;
 }
 
+.task__content{
+  margin-right: 1rem;
+}
+
+.task__btn-group{
+  margin-left: auto;
+}
+
+.ctrl-btn{
+  width: 20px;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  margin-bottom: .5rem;
+  opacity: .1;
+  display: block;
+}
+
+.ctrl-btn:hover{
+  opacity: 1;
+}
+
+.ctrl-btn:last-child{
+  margin-bottom: 0rem;
+}
+
+.task__del-btn{
+  background-image: url("../images/trash-icon.png");
+}
+
+.task__edit-btn{
+  background-image: url("../images/edit-icon.png");
+}
+
 .button-wrapper{
   border-top: 1px #222 solid;
   text-align: center;
@@ -185,7 +222,16 @@ p{
     font-size: 6rem;
   }
 
-	.card {
-        width: 100%;
-    }
+  .card {
+      width: 100%;
+  }
+
+  .task__btn-group{
+    padding-top: 1rem;
+  }
+
+  .ctrl-btn{
+    width: min-content;
+    margin-bottom: 0rem;
+  }
 }

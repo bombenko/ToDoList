@@ -18,6 +18,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/,
+        use: 'raw-loader',
+      },
+      {
         test: /\.less$/,
         use: [
           'style-loader',
@@ -54,6 +58,7 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'ToDoList',
+      template: './src/index.html',
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
