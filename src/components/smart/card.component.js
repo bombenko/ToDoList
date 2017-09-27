@@ -28,9 +28,7 @@ export class Card extends Component {
         ${this.createChild(new Task('vilkoi', 'v glaz', this.deleteListItem))}
         ${this.createChild(new Task('v popu', 'raz', this.deleteListItem))}
       </div>
-      <div class="button-wrapper">
-        <button type="button" class="add-button">Add element...</button>
-      </div>
+      <button type="button" class="add-button">Add element...</button>
   `;
   }
 }
