@@ -14,11 +14,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.*\/app\/.*\.js$/,
-        exclude: /.spec.js/,
-        loader: 'uglify',
-      },
-      {
         test: /\.less$/,
         use: [
           'style-loader',
