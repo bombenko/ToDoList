@@ -5,6 +5,7 @@ export class Component {
     this.hash = new ComponentService().generateHash();
     this.componentName = 'comp';
     this.childList = [];
+    this.elemRef = null;
   }
 
   createChild(component) {
@@ -14,6 +15,14 @@ export class Component {
 
   createRootTag(component) {
     return `<${component.componentName} ${component.hash}></${component.componentName}>`;
+  }
+
+  getElemRef() {
+    if (!this.elemRef) {
+      this.elemRef = document.querySelector(`[${this.hash}]`);
+    }
+
+    return this.elemRef;
   }
 
   getDomElem() {
@@ -26,10 +35,9 @@ export class Component {
   }
 
   render() {
-    document.querySelector(`[${this.hash}]`).replaceWith(this.getDomElem());
+    this.getElemRef().replaceWith(this.getDomElem());
     this.childList.forEach(child => child.render());
   }
-
 
   getTemplate() { }
 }
