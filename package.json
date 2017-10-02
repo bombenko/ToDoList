@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.prod.config.js",
     "start": "webpack-dev-server --open",
     "lint": "eslint src/**/*.js",
-    "lint_fix": "eslint src/**/*.js --fix"
+    "lint_fix": "eslint src/**/*.js --fix",
+    "prod": "lite-server"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,8 @@
     "webpack": "^3.6.0",
     "clean-webpack-plugin": "^0.1.16",
     "html-webpack-plugin": "^2.30.1",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "uglifyjs-webpack-plugin": "^0.4.6"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",

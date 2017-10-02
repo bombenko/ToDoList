@@ -8,6 +8,21 @@
   line-height: 1.2;
   font-size: 2rem;
   margin-bottom: .5rem;
+  word-break: break-all;
+  &:empty:before{
+    content: attr(placeholder);
+    color: #bbb;
+    display: block;
+  }
+}
+
+.task__description{
+  word-break: break-all;
+  &:empty:before{
+    content: attr(placeholder);
+    color: #bbb;
+    display: block;
+  }
 }
 
 .task__completed{
@@ -19,11 +34,8 @@
   margin-right: 1rem;
 }
 
-.task__btn-group{
-  margin-left: auto;
-}
-
 .ctrl-btn{
+  margin-left: auto;
   width: 20px;
   height: auto;
   border: none;
@@ -31,12 +43,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   text-indent: -9999px;
-  margin-bottom: .5rem;
   opacity: .1;
   display: block;
-  &:last-child{
-    margin-bottom: 0rem;
-  }
   &:hover{
     opacity: 1;
   }
@@ -44,10 +52,6 @@
 
 .task__del-btn{
   background-image: url("../../images/trash-icon.png");
-}
-
-.task__edit-btn{
-  background-image: url("../../images/edit-icon.png");
 }
 
 .checkbox{
@@ -60,12 +64,11 @@
   }
   & + .checkbox-label:before{
     content: '';
+    vertical-align: text-top;
     margin-right: 10px;
     display: inline-block;
-    vertical-align: text-top;
     width: 20px;
     height: 20px;
-    background: #fff;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
   }
   &:hover + .checkbox-label:before{
@@ -79,16 +82,17 @@
     text-decoration: line-through;
   }
   &:checked + .checkbox-label:after{
-    content: '';
     position: absolute;
-    left: 5px;
-    top: 9px;
-    background: white;
-    width: 2px;
-    height: 2px;
-    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+    content: '';
+    left: 7px;
+    top: 2px;
+    display: block;
+    width: 4px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
   }
 }
 
@@ -99,6 +103,5 @@
 
   .ctrl-btn{
     width: min-content;
-    margin-bottom: 0rem;
   }
 }
