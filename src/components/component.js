@@ -1,11 +1,13 @@
-import { ComponentService } from '../services/component.service';
+import { HashGenerator } from '../services/hash-generator.service';
 
 export class Component {
   constructor() {
-    const componentService = new ComponentService();
+    const componentService = new HashGenerator();
     this.hash = componentService.generateHash();
+    this.generateCtrlHash = componentService.generateCtrlHash(this.hash);
     this.componentName = 'comp';
     this.childList = [];
+    this.controlList = {};
     this.elemRef = null;
   }
 
@@ -16,7 +18,20 @@ export class Component {
    */
   createChild(component) {
     this.childList.push(component);
+
     return this.createRootTag(component);
+  }
+
+  /**
+   *
+   * @param {string} ctrlName
+   * @returns {string}
+   */
+  createControl(ctrlName) {
+    const ctrlHash = this.generateCtrlHash();
+    this.controlList[ctrlName] = ctrlHash;
+
+    return `${ctrlHash}`;
   }
 
   /**
@@ -43,7 +58,10 @@ export class Component {
    * @returns {void}
    */
   renderChildren() {
-    this.childList.forEach(child => child.attach().render());
+    this.childList.forEach(child => child
+      .attach()
+      .render()
+      .addHandlers());
   }
 
   /**
@@ -61,4 +79,9 @@ export class Component {
    * Method to override
    */
   getTemplate() { }
+
+  /**
+   * Method to override
+   */
+  addHandlers() { }
 }
